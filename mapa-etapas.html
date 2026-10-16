@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ProjectMímir — mapa das etapas</title>
+  <style>
+    :root {
+      --ink: #1c1915;
+      --muted: #5c564c;
+      --line: #d9d2c5;
+      --paper: #f6f3ec;
+      --card: #fffcf7;
+      --accent: #1f4d45;
+      --mark: #8a3d2f;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.5 "Segoe UI", "Liberation Sans", sans-serif;
+    }
+
+    main {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 48px 24px 72px;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 32px;
+      font-weight: 650;
+      letter-spacing: -0.03em;
+    }
+
+    header p {
+      margin: 0;
+      max-width: 62ch;
+      color: var(--muted);
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 28px 0 36px;
+    }
+
+    .summary div {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 12px 14px;
+    }
+
+    .summary strong {
+      display: block;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .summary span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .bands {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      margin-bottom: 28px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .bands i {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 6px;
+      vertical-align: -1px;
+      background: var(--swatch);
+    }
+
+    ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border-left: 2px solid var(--line);
+    }
+
+    li {
+      position: relative;
+      margin: 0 0 14px 28px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 14px 16px 12px;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      left: -35px;
+      top: 18px;
+      width: 12px;
+      height: 12px;
+      border: 2px solid var(--accent);
+      background: var(--paper);
+    }
+
+    li.marco {
+      border-color: var(--mark);
+    }
+
+    li.marco::before {
+      border-color: var(--mark);
+      background: var(--mark);
+    }
+
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    h2 {
+      margin: 4px 0 6px;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    li p {
+      margin: 0;
+    }
+
+    footer {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 68ch;
+    }
+
+    @media (max-width: 720px) {
+      .summary { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>ProjectMímir</h1>
+      <p>
+        Mapa das nove etapas. Você aprende o que dizer em entrevista sobre
+        segurança, cloud, IA e o stack do currículo. A IA escreve o código;
+        você escreve a regra, o prompt e a leitura. A etapa 5 é o demo:
+        sistema no ar e varredura lida.
+      </p>
+    </header>
+
+    <section class="summary" aria-label="Resumo da jornada">
+      <div><strong>18 sem</strong><span>jornada completa</span></div>
+      <div><strong>12 sem</strong><span>até o Docker e o ZAP</span></div>
+      <div><strong>Etapa 1</strong><span>onde estamos agora</span></div>
+      <div><strong>Prompt</strong><span>você pede; a IA digita</span></div>
+    </section>
+
+    <div class="bands" aria-label="Blocos de tempo">
+      <span><i style="--swatch:#1f4d45"></i>Domínio e API · 4 sem</span>
+      <span><i style="--swatch:#3d6b86"></i>Arquivo e fila · 2 sem</span>
+      <span><i style="--swatch:#5c4d86"></i>Mímisbrunnr · 3 sem</span>
+      <span><i style="--swatch:#8a5a32"></i>n8n · 1 sem</span>
+      <span><i style="--swatch:#8a3d2f"></i>Docker e verificação · 2 sem</span>
+      <span><i style="--swatch:#6e6238"></i>AWS · 2 sem</span>
+      <span><i style="--swatch:#6a4458"></i>Kubernetes · 2 sem</span>
+      <span><i style="--swatch:#5c564c"></i>Classificador · 2 sem</span>
+    </div>
+
+    <ol>
+      <li>
+        <div class="meta"><span>Etapa 0</span><span>1 semana</span></div>
+        <h2>Contrato do domínio</h2>
+        <p>Estados do procedimento, o que é imutável na peça e as recusas do sistema. Sem Django ainda.</p>
+      </li>
+      <li>
+        <div class="meta"><span>Etapa 1</span><span>3 semanas</span></div>
+        <h2>Núcleo Django e Postgres</h2>
+        <p>Django, DRF, OpenAPI, Unfold, papéis e gitleaks. Você pede o model; a IA escreve. Quem não tem o papel não conclui prazo.</p>
+      </li>
+      <li>
+        <div class="meta"><span>Etapa 2</span><span>2 semanas</span></div>
+        <h2>Arquivo e fila</h2>
+        <p>PDF no MinIO, SHA-256 contra duplicata, extração no Celery. O nome do arquivo não vira caminho.</p>
+      </li>
+      <li>
+        <div class="meta"><span>Etapa 3</span><span>3 semanas</span></div>
+        <h2>Mímisbrunnr</h2>
+        <p>Pergunta devolve peça e página, ou recusa. Uma instrução escrita dentro do PDF não muda a consulta.</p>
+      </li>
+      <li>
+        <div class="meta"><span>Etapa 4</span><span>1 semana</span></div>
+        <h2>Prazo no n8n</h2>
+        <p>Dois dias antes, um webhook assinado acorda o fluxo. O Django publica o evento e não envia e-mail.</p>
+      </li>
+      <li class="marco">
+        <div class="meta"><span>Etapa 5 · marco</span><span>2 semanas</span></div>
+        <h2>Docker e verificação</h2>
+        <p>Um compose sobe o sistema. O Refine lê a API e vira o painel em React. Semgrep, pip-audit e o ZAP em modo baseline rodam nessa instalação.</p>
+      </li>
+      <li>
+        <div class="meta"><span>Etapa 6</span><span>2 semanas</span></div>
+        <h2>AWS</h2>
+        <p>Imagem no ECR, web e worker no ECS, RDS, S3, TLS e segredo no Secrets Manager. O banco não fica aberto.</p>
+      </li>
+      <li>
+        <div class="meta"><span>Etapa 7</span><span>2 semanas</span></div>
+        <h2>Kubernetes</h2>
+        <p>O mesmo sistema no kind, com web e worker em réplicas diferentes e migração num Job.</p>
+      </li>
+      <li>
+        <div class="meta"><span>Etapa 8</span><span>2 semanas</span></div>
+        <h2>Classificador de peça</h2>
+        <p>Modelo afinado no conjunto que você rotula, comparado com um prompt em acerto, custo e latência.</p>
+      </li>
+    </ol>
+
+    <footer>
+      Quatro eixos: backend/API, segurança, cloud e IA na programação.
+      A etapa marcada é o corte de entrevista. AWS e Kubernetes vêm depois do Compose.
+    </footer>
+  </main>
+</body>
+</html>
