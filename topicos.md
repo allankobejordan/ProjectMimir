@@ -62,16 +62,23 @@ Se um comando falhar, pare.
 
 Você digita os comandos Git. A IA não cria branch nem commit no seu lugar, salvo se você pedir explicitamente.
 
-Fluxo, quando houver demanda de implementação:
+Quatro branches, cada uma com um papel:
 
-1. A `main` só recebe o que já foi revisado e funciona.
-2. Cada demanda nasce numa branch a partir da `main` (ex.: `feat/procedimento-model`).
-3. Você trabalha nessa branch, testa, e só então une na `main` (`merge` ou PR).
-4. Subir para o remoto é a última etapa, depois do merge na `main`.
+| Branch | Papel |
+| --- | --- |
+| `allan-dev` | Uma demanda por vez |
+| `senior-dev` | Outra demanda, em paralelo |
+| `develop` | Integração: recebe as duas e é onde o conflito é resolvido |
+| `main` | Só o que já passou pela `develop` e funciona; é o que sobe |
 
-Comandos que você vai treinar de verdade: `status`, `branch`, `checkout`/`switch`, `add`, `commit`, `log`, `diff`, `merge`, `push`, `pull`. Dois ramos em paralelo (duas demandas) entram quando existirem duas frentes ao mesmo tempo; até lá, uma demanda = uma branch.
+Ciclo de cada par de demandas:
 
-Ainda não abrimos branch: o próximo passo de código (model `Procedimento`) é a primeira demanda. Aí criamos a branch juntos, com você digitando.
+1. Cada demanda é feita e commitada na sua branch de trabalho.
+2. Na `develop`, entram as duas: `git merge allan-dev` e `git merge senior-dev`. Se as duas mexeram na mesma linha, o conflito aparece aqui e é resolvido aqui.
+3. Testa na `develop`. Funcionou: `git switch main`, `git merge develop` e `git push`.
+4. As duas branches de trabalho recebem a `develop` (`git merge develop`) antes da próxima demanda, para partirem da mesma base.
+
+Comandos treinados: `status`, `branch`, `switch`, `add`, `commit`, `log`, `diff`, `merge`, `push`, `pull` e a resolução de conflito.
 
 ### Onde paramos (progresso)
 
@@ -79,9 +86,11 @@ Ainda não abrimos branch: o próximo passo de código (model `Procedimento`) é
 | --- | --- |
 | Etapa 0 — contrato `0001` | Feita |
 | Projeto Django (`manage.py`, `config`) | Feito; `runserver` abriu |
-| Fluxo Git (duas branches + main) | Combinado; `git init` ainda pendente (você digita) |
+| Repositório e remoto | `main` no GitHub, com `.gitignore` corrigido |
+| Fluxo Git (`allan-dev`, `senior-dev`, `develop`, `main`) | `allan-dev` criada; faltam `senior-dev` e `develop` |
 | Migrações do Django admin/auth | Aplicadas |
-| App e model `Procedimento` | Criado; commit na branch `feat/procedimento-model` pendente |
+| App e model `Procedimento` | Criado e na `main` |
+| `SECRET_KEY` fora do código | Próxima demanda; a chave atual já foi para o GitHub e precisa ser trocada |
 | Postgres, API, Unfold, segurança de papel | Ainda não |
 
 Cada etapa fecha com uma pergunta que você precisa responder sem olhar o código.
