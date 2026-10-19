@@ -80,6 +80,16 @@ Ciclo de cada par de demandas:
 
 Comandos treinados: `status`, `branch`, `switch`, `add`, `commit`, `log`, `diff`, `merge`, `push`, `pull` e a resolução de conflito.
 
+### Fechamento de demanda
+
+Uma demanda só termina quando tem estas cinco partes. Sem elas, a próxima não começa.
+
+1. **O que fizemos e por quê** — o pedido da cliente e o risco que ele evita.
+2. **Como fizemos** — arquivos, comandos e a verificação que prova que funciona.
+3. **O que aprendemos** — o conceito que serve fora deste projeto.
+4. **Pergunta de entrevista** — você responde com as suas palavras.
+5. **Resposta guiada** — o Sênior completa ou corrige a sua resposta.
+
 ### Onde paramos (progresso)
 
 | Item | Status |
@@ -87,10 +97,11 @@ Comandos treinados: `status`, `branch`, `switch`, `add`, `commit`, `log`, `diff`
 | Etapa 0 — contrato `0001` | Feita |
 | Projeto Django (`manage.py`, `config`) | Feito; `runserver` abriu |
 | Repositório e remoto | `main` no GitHub, com `.gitignore` corrigido |
-| Fluxo Git (`allan-dev`, `senior-dev`, `develop`, `main`) | `allan-dev` criada; faltam `senior-dev` e `develop` |
+| Fluxo Git (`allan-dev`, `senior-dev`, `develop`, `main`) | As quatro criadas e no GitHub |
 | Migrações do Django admin/auth | Aplicadas |
 | App e model `Procedimento` | Criado e na `main` |
-| `SECRET_KEY` fora do código | Próxima demanda; a chave atual já foi para o GitHub e precisa ser trocada |
+| `SECRET_KEY` fora do código | Feita na `allan-dev`; chave trocada; aguarda a `develop` |
+| Model `Parte` | Próxima demanda, na `senior-dev` |
 | Postgres, API, Unfold, segurança de papel | Ainda não |
 
 Cada etapa fecha com uma pergunta que você precisa responder sem olhar o código.
