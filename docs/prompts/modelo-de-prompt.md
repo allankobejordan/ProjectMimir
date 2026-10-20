@@ -10,7 +10,7 @@ Uma demanda é um pacote: uma capacidade de negócio inteira, com regra, teste e
 4. **Escopo** — o que entra e, com o mesmo peso, o que não entra.
 5. **Segurança e restrições** — arquivos que podem mudar, dependências, dados de teste e comandos proibidos.
 6. **Pronto quando** — comandos que você roda e o resultado esperado.
-7. **Entrega** — como a IA deve responder: arquivos alterados, uma frase por regra e como testar.
+7. **Entrega** — como a IA deve responder: arquivos alterados, uma frase por regra, como testar e, quando houver escolha de tecnologia, as alternativas e o motivo da escolhida.
 8. **Dúvida** — se algo estiver ambíguo, perguntar antes de implementar.
 
 ## Travas de segurança que entram em todo prompt

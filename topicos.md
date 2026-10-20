@@ -82,13 +82,17 @@ Comandos treinados: `status`, `branch`, `switch`, `add`, `commit`, `log`, `diff`
 
 ### Fechamento de demanda
 
-Uma demanda só termina quando tem estas cinco partes. Sem elas, a próxima não começa.
+Uma demanda só termina quando tem estas sete partes. Sem elas, a próxima não começa.
 
 1. **O que fizemos e por quê** — o pedido da cliente e o risco que ele evita.
-2. **Como fizemos** — arquivos, comandos e a verificação que prova que funciona.
-3. **O que aprendemos** — o conceito que serve fora deste projeto.
-4. **Pergunta de entrevista** — você responde com as suas palavras.
-5. **Resposta guiada** — o Sênior completa ou corrige a sua resposta.
+2. **Decisão de arquitetura** — as alternativas que existiam, a escolhida e o motivo. A decisão que muda a arquitetura vira um ADR em `docs/adr/`.
+3. **Como fizemos** — arquivos, comandos e a verificação que prova que funciona.
+4. **Bug real** — o que quebrou no caminho, como foi diagnosticado e qual era a causa. Se nada quebrou, o erro mais provável em produção e como seria investigado.
+5. **O que aprendemos** — o conceito que serve fora deste projeto.
+6. **Pergunta de entrevista** — você responde com as suas palavras.
+7. **Resposta guiada** — o Sênior completa ou corrige a sua resposta.
+
+Como a IA escreve o código, o estudo fica no porquê: por que esta tecnologia e não a outra, o que ela custa e como se investiga quando ela falha.
 
 ### Onde paramos (progresso)
 
