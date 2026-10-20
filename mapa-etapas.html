@@ -140,6 +140,143 @@
       margin: 0;
     }
 
+    li.feita::before {
+      background: var(--accent);
+    }
+
+    li.feita {
+      opacity: 0.72;
+    }
+
+    li.atual {
+      border: 2px solid var(--accent);
+    }
+
+    li.atual::before {
+      left: -36px;
+      width: 14px;
+      height: 14px;
+      background: var(--accent);
+      outline: 4px solid var(--paper);
+      box-shadow: 0 0 0 6px var(--accent);
+    }
+
+    .tag {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 1px 8px;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--card);
+      background: var(--accent);
+    }
+
+    .tag.aqui {
+      background: var(--mark);
+    }
+
+    .onde {
+      margin: 0 0 32px;
+      padding: 16px 18px;
+      background: var(--card);
+      border: 2px solid var(--mark);
+    }
+
+    .onde h2 {
+      margin: 0 0 4px;
+    }
+
+    .onde > p {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+
+    .branches {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .branches th,
+    .branches td {
+      padding: 6px 8px;
+      text-align: left;
+      border-top: 1px solid var(--line);
+    }
+
+    .branches th {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-top: 0;
+    }
+
+    .branches code {
+      font-family: "DejaVu Sans Mono", monospace;
+      font-size: 13px;
+    }
+
+    .barra {
+      height: 8px;
+      margin: 12px 0 4px;
+      background: var(--line);
+    }
+
+    .barra span {
+      display: block;
+      height: 100%;
+      background: var(--accent);
+    }
+
+    .itens {
+      list-style: none;
+      margin: 12px 0 0;
+      padding: 0;
+      border: 0;
+    }
+
+    .itens li {
+      margin: 0;
+      padding: 5px 0 5px 26px;
+      background: none;
+      border: 0;
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    .itens li::before {
+      left: 4px;
+      top: 11px;
+      width: 10px;
+      height: 10px;
+      border-width: 2px;
+    }
+
+    .itens li.ok::before {
+      background: var(--accent);
+    }
+
+    .itens li.agora {
+      font-weight: 600;
+      color: var(--mark);
+    }
+
+    .itens li.agora::before {
+      border-color: var(--mark);
+      background: var(--mark);
+    }
+
+    .itens li.depois {
+      color: var(--muted);
+    }
+
+    .itens li.depois::before {
+      border-color: var(--line);
+    }
+
     footer {
       margin-top: 28px;
       color: var(--muted);
@@ -168,7 +305,23 @@
       <div><strong>18 sem</strong><span>jornada completa</span></div>
       <div><strong>12 sem</strong><span>até o Docker e o ZAP</span></div>
       <div><strong>Etapa 1</strong><span>onde estamos agora</span></div>
-      <div><strong>Prompt</strong><span>você pede; a IA digita</span></div>
+      <div><strong>5 de 12</strong><span>itens da etapa 1 feitos</span></div>
+    </section>
+
+    <section class="onde" aria-label="Onde paramos">
+      <h2>Você parou aqui</h2>
+      <p>19/10/2026 · As duas demandas do primeiro par estão no GitHub. Falta juntar as duas na develop e depois na main.</p>
+      <table class="branches">
+        <thead>
+          <tr><th>Branch</th><th>Último commit</th><th>Situação</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>allan-dev</code></td><td><code>247f51a</code> SECRET_KEY no .env</td><td>Pronta para a develop</td></tr>
+          <tr><td><code>senior-dev</code></td><td><code>a610501</code> model Parte</td><td>Pronta para a develop</td></tr>
+          <tr><td><code>develop</code></td><td><code>861b009</code> gitignore</td><td>Próximo passo: receber as duas</td></tr>
+          <tr><td><code>main</code></td><td><code>861b009</code> gitignore</td><td>Recebe a develop depois do teste</td></tr>
+        </tbody>
+      </table>
     </section>
 
     <div class="bands" aria-label="Blocos de tempo">
@@ -183,15 +336,30 @@
     </div>
 
     <ol>
-      <li>
+      <li class="feita">
         <div class="meta"><span>Etapa 0</span><span>1 semana</span></div>
-        <h2>Contrato do domínio</h2>
+        <h2>Contrato do domínio <span class="tag">Feita</span></h2>
         <p>Estados do procedimento, o que é imutável na peça e as recusas do sistema. Sem Django ainda.</p>
       </li>
-      <li>
+      <li class="atual">
         <div class="meta"><span>Etapa 1</span><span>3 semanas</span></div>
-        <h2>Núcleo Django e Postgres</h2>
+        <h2>Núcleo Django e Postgres <span class="tag aqui">Você está aqui</span></h2>
         <p>Django, DRF, OpenAPI, Unfold, papéis e gitleaks. Você pede o model; a IA escreve. Quem não tem o papel não conclui prazo.</p>
+        <div class="barra" aria-hidden="true"><span style="width: 42%"></span></div>
+        <ul class="itens">
+          <li class="ok">Projeto Django e app <code>dominio</code></li>
+          <li class="ok">Procedimento com os três estados</li>
+          <li class="ok">Git com quatro branches no GitHub</li>
+          <li class="ok">SECRET_KEY no .env, chave trocada</li>
+          <li class="ok">Parte com CPF validado e travado fora do rascunho</li>
+          <li class="agora">Juntar allan-dev e senior-dev na develop, depois na main</li>
+          <li class="depois">Botões de transição de estado no admin</li>
+          <li class="depois">Peça e Prazo</li>
+          <li class="depois">Postgres no lugar do SQLite</li>
+          <li class="depois">API REST com OpenAPI</li>
+          <li class="depois">Tela no Django Unfold</li>
+          <li class="depois">Papéis de acesso e gitleaks</li>
+        </ul>
       </li>
       <li>
         <div class="meta"><span>Etapa 2</span><span>2 semanas</span></div>
